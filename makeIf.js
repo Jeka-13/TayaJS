@@ -1,18 +1,26 @@
-// To do
-// ? Can we somehow manipulate with styles if variable is true or false (display none/block)
-// if not
-// 1) Try to get all the children
-// 2) put them in appendChild or innerHtml
-// 3) Verify the condition of the variable which is came
-// 4) Make a general function for verifying conditions
+// TO DO
+// 1 get values from component
+// 2 work with boolean operators
+// 3 work with truthy && falsy
 class MakeIf extends HTMLElement {
+    attribute = null;
     constructor() {
         super();
-    }
-    connectedCallback() {
-        console.log(this.childNodes);
-        this.innerHTML = `<h1>Hello</h1>`
+        try {
+            if (!this.hasAttribute("condition"))
+                throw new Error('Condition attribute is not written');
+            this.attribute = this.getAttribute("condition");
+            if (!this.attribute.trim())
+                throw new Error('Condition is not written');
+            console.log(this.attribute);
+        }
+        catch (e) {
+            console.log(e);
+        }
 
+        if (!this.attribute) {
+            this.innerHTML = ``;
+        }
     }
 }
 
