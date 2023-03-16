@@ -1,10 +1,29 @@
 const webpack = require('webpack')
 const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetPlugin = require('css-minimizer-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
+
+const optimization = () => {
+    const config =  {
+        splitChunks: {
+            chunks: 'all'
+        }
+    }
+
+    if (isProd) {
+        config.minimizer = [
+            new OptimizeCssAssetPlugin(),
+            new TerserWebpackPlugin()
+        ]
+    }
+    return config;
+}
 
 module.exports = {
     context: path.join(__dirname, 'src'),
@@ -19,20 +38,32 @@ module.exports = {
         port: 4200,
         hot: isDev
     },
+    optimization: optimization(),
     plugins: [
-        new htmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: './index.html',
             minify: {
                 collapseWhitespace: isProd
             }
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
+        })
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: "/public/path/to/",
+                        },
+                    },
+                    "css-loader",
+                ],
             }
         ]
     }
