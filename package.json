@@ -2,7 +2,7 @@
   "name": "taya_js",
   "version": "1.0.0",
   "description": "SPA JavaScript library ",
-  "main": "src/main.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "dev": "webpack --mode development",
