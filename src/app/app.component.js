@@ -3,6 +3,7 @@
 // Or maybe to create special templateUrl and template for two possibilities ?????
 
 import {TayaComponent} from "../library/imports";
+import './app.component.css'
 
 class AppComponent extends TayaComponent {
     constructor(config) {
