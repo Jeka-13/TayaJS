@@ -1,5 +1,6 @@
 import {TayaModule} from "../library/imports";
 import {appComponent} from "./app.component";
+import {appHeader} from "./common/header.component";
 
 class AppModule extends TayaModule {
     constructor(config) {
@@ -9,6 +10,7 @@ class AppModule extends TayaModule {
 
 export const appModule = new AppModule({
     components: [
-        appComponent
-    ]
+        appHeader
+    ],
+    rootComponent: appComponent
 })

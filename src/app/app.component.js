@@ -14,6 +14,7 @@ class AppComponent extends TayaComponent {
 export const appComponent = new AppComponent({
     selector: 'app-root',
     template: ` 
+        <app-header></app-header>
         <div> Wow, your shit is working </div> 
     `
 })
