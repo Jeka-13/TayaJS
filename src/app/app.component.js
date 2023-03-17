@@ -15,6 +15,7 @@ export const appComponent = new AppComponent({
     selector: 'app-root',
     template: ` 
         <app-header></app-header>
-        <div> Wow, your shit is working </div> 
+        <div> Wow, your library is working </div> 
+        <router-outlet></router-outlet>
     `
 })
