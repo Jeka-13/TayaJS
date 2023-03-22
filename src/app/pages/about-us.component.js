@@ -17,9 +17,13 @@ class AboutUsComponent extends Component {
 }
 
 export const aboutUsComponent = new AboutUsComponent({
+    state: {
+        title: 'Dynamic title',
+        btnName: 'Click me!!'
+    },
     selector: 'app-about-us',
     template:`<div>
-            This is about us
-            <button id="btn">Click me</button>
+            {{title}}
+            <button id="btn">{{btnName}}</button>
         </div>`
 })

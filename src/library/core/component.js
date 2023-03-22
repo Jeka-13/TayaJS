@@ -1,5 +1,6 @@
 export class Component {
     constructor(config) {
+        this.state = config.state;
         this.selector = config.selector;
         this.template = config.template;
         this.element = null;
@@ -14,7 +15,7 @@ export class Component {
         else if (!this.element)
             throw new Error(`Component with ${this.selector} name wasn't found`)
 
-        this.element.innerHTML = this.template;
+        this.element.innerHTML = this.renderTemplate(this.template, this.state);
 
         this._initEvents();
     }
@@ -26,5 +27,17 @@ export class Component {
             const [listenerType, selector] = key.split(' ');
             this.element.querySelector(selector).addEventListener(listenerType, events[key].bind(this))
         })
+    }
+
+    renderTemplate(template, state) {
+        if (!state) return template;
+
+        const regex = /\{{(.*?)}}/g
+        template = template.replace(regex, (str, val) => {
+             let key = val.trim();
+             return state[key]
+        })
+
+        return template;
     }
 }
