@@ -1,3 +1,6 @@
+import {parsePipe} from "./pipes/parse-pipe";
+import {applyPipe} from "./pipes/apply-pipe";
+
 export class Component {
     constructor(config) {
         this.state = config.state;
@@ -31,11 +34,16 @@ export class Component {
 
     renderTemplate(template, state) {
         if (!state) return template;
-
+        let pipe;
         const regex = /\{{(.*?)}}/g
         template = template.replace(regex, (str, val) => {
              let key = val.trim();
-             return state[key]
+             if (key.includes('|')) {
+                 pipe = parsePipe(key);
+                 key = key.split('|')[0].trim();
+             }
+             if(!pipe) return state[key];
+             return applyPipe(pipe, state[key]);
         })
 
         return template;
