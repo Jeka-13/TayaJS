@@ -15,5 +15,16 @@ export class Component {
             throw new Error(`Component with ${this.selector} name wasn't found`)
 
         this.element.innerHTML = this.template;
+
+        this._initEvents();
+    }
+
+    _initEvents() {
+        if(!this.events) return;
+        let events = this.events();
+        Object.keys(events).forEach(key => {
+            const [listenerType, selector] = key.split(' ');
+            this.element.querySelector(selector).addEventListener(listenerType, events[key].bind(this))
+        })
     }
 }
