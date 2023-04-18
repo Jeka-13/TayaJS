@@ -1,5 +1,5 @@
 import {router} from "./tools/router";
-import {initPipes} from "./pipes/init-pipes";
+import {initPipes} from "./pipes/pipes-registration/init-pipes";
 
 export class Module {
     constructor(config) {
@@ -11,7 +11,7 @@ export class Module {
 
     start() {
         initPipes(this.pipes);
-        this.initComponents()
+        this.initComponents();
         if (this.routes) {
             this.initRoutes();
         }

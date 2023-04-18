@@ -1,5 +1,5 @@
-import {parsePipe} from "./pipes/parse-pipe";
-import {applyPipe} from "./pipes/apply-pipe";
+import {parsePipe} from "./pipes/pipes-registration/parse-pipe";
+import {applyPipe} from "./pipes/pipes-registration/apply-pipe";
 
 export class Component {
     constructor(config) {
