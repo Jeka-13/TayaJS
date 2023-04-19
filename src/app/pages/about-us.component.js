@@ -14,6 +14,14 @@ class AboutUsComponent extends Component {
     onButtonClick(event) {
         console.log(event);
     }
+
+    onInit() {
+        console.log('OnInit lifecycle hook is called');
+    }
+
+    afterViewInit() {
+        console.log('After view init lifecycle hook is called');
+    }
 }
 
 export const aboutUsComponent = new AboutUsComponent({

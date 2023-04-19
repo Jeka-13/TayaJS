@@ -28,7 +28,13 @@ export class Module {
     }
 
     renderComponent(component) {
+        if (component.onInit) {
+            component.onInit();
+        }
         component.render();
+        if (component.afterViewInit) {
+            component.afterViewInit();
+        }
     }
 
     renderRoute() {

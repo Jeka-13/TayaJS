@@ -26,10 +26,13 @@ export class Component {
     }
 
     _initEvents() {
-        if(!this.events) return;
+        if (!this.events) return;
         let events = this.events();
         Object.keys(events).forEach(key => {
             const [listenerType, selector] = key.split(' ');
+            if (!this.element.querySelector(selector)) {
+                throw new Error('Can\'t access to the selector');
+            }
             this.element.querySelector(selector).addEventListener(listenerType, events[key].bind(this))
         })
     }
