@@ -46,6 +46,10 @@ export const aboutUsComponent = new AboutUsComponent({
             {{date | datePipe:shortDate}},
             {{title | datePipe}}
             <hr>
+            <make-if condition="number == 5"> 
+                <h1>Test</h1>
+                <h2>Test 2</h2>
+            </make-if>
             <button id="btn">{{btnName}}</button>
             <div>{{number | multi:10}}</div>
         </div>`
