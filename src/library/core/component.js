@@ -1,6 +1,7 @@
 import {parsePipe} from "./pipes/pipes-registration/parse-pipe";
 import {applyPipe} from "./pipes/pipes-registration/apply-pipe";
 import {makeIf} from "./tools/special-tags/make-if";
+import {makeFor} from "./tools/special-tags/make-for";
 
 export class Component {
     constructor(config) {
@@ -35,6 +36,9 @@ export class Component {
 
     renderTemplate(template, state) {
         if (!state) return template;
+        if (template.includes('make-for')) {
+            template = makeFor(template, state);
+        }
         let pipe;
         const regex = /\{{(.*?)}}/g
         template = template.replace(regex, (str, val) => {

@@ -32,25 +32,19 @@ export const aboutUsComponent = new AboutUsComponent({
             }
         },
         date: new Date(),
-        number: 5
+        number: 5,
+        arrayTest: ['Jeka', 'Kirill', 'Artur', 'Alex']
     },
     selector: 'app-about-us',
     template:`<div>
-            
-            {{date | datePipe}},
-            {{date | datePipe:full}},
-            {{date | datePipe:date}},
-            {{date | datePipe:day}},
-            {{date | datePipe:month}},
-            {{date | datePipe:year}},
-            {{date | datePipe:shortDate}},
-            {{title | datePipe}}
-            <hr>
-            <make-if condition="number == 5"> 
-                <h1>Test</h1>
-                <h2>Test 2</h2>
-            </make-if>
-            <button id="btn">{{btnName}}</button>
+            <make-for cycle="let item of arrayTest">
+            <div>
+                <h4>Wow</h4>
+                <h1>{{item}}</h1>
+                <h3>word</h3>
+            </div>
+            </make-for>
+           
             <div>{{number | multi:10}}</div>
         </div>`
 })
