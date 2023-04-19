@@ -1,7 +1,7 @@
-import {parsePipe} from "./pipes/pipes-registration/parse-pipe";
-import {applyPipe} from "./pipes/pipes-registration/apply-pipe";
-import {makeIf} from "./tools/special-tags/make-if";
-import {makeFor} from "./tools/special-tags/make-for";
+import {parsePipe} from "../pipes/pipes-registration/parse-pipe";
+import {applyPipe} from "../pipes/pipes-registration/apply-pipe";
+import {makeIf} from "../tools/special-tags/make-if";
+import {makeFor} from "../tools/special-tags/make-for";
 
 export class Component {
     constructor(config) {
@@ -22,16 +22,16 @@ export class Component {
 
         this.element.innerHTML = this.renderTemplate(this.template, this.state);
 
-        this._initEvents();
+        this.#initEvents();
     }
 
-    _initEvents() {
+    #initEvents() {
         if (!this.events) return;
         let events = this.events();
         Object.keys(events).forEach(key => {
             const [listenerType, selector] = key.split(' ');
             if (!this.element.querySelector(selector)) {
-                throw new Error('Can\'t access to the selector');
+                return;
             }
             this.element.querySelector(selector).addEventListener(listenerType, events[key].bind(this))
         })

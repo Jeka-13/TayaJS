@@ -1,11 +1,11 @@
-import {TayaModule} from "../library/imports";
+import {TayaModule} from "tayaJS";
 import {appComponent} from "./app.component";
 import {appHeader} from "./common/header.component";
 import {homePageComponent} from "./pages/home-page.component";
 import {aboutUsComponent} from "./pages/about-us.component";
 import {notFound} from "./common/not-found.component";
 import {multiPipe} from "./shared/pipes/multi.pipe";
-import {commonTayaJSPipes} from "../library/core/pipes/common-tayajs-pipes";
+import {commonTayaJSPipes} from "tayaJS";
 
 class AppModule extends TayaModule {
     constructor(config) {

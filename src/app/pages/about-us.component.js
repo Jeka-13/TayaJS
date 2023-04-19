@@ -1,6 +1,6 @@
-import {Component} from "../../library/core/component";
+import {TayaComponent} from "tayaJS";
 
-class AboutUsComponent extends Component {
+class AboutUsComponent extends TayaComponent {
     constructor(config) {
         super(config);
     }

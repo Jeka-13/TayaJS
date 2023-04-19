@@ -1,5 +1,6 @@
-import {router} from "./tools/router";
 import {initPipes} from "./pipes/pipes-registration/init-pipes";
+import {renderComponent} from "./component/render-component";
+import {RoutingModule} from "./routing/routing.module";
 
 export class Module {
     constructor(config) {
@@ -11,34 +12,21 @@ export class Module {
 
     start() {
         initPipes(this.pipes);
-        this.initComponents();
+        this.#initComponents();
         if (this.routes) {
-            this.initRoutes();
+            this.#initRoutes();
         }
     }
 
-    initComponents() {
-        this.rootComponent.render();
-        this.components.forEach(this.renderComponent.bind(this));
+    #initRoutes() {
+        const routing = new RoutingModule(this.routes);
+        routing.initRoutes();
     }
 
-    initRoutes() {
-        window.addEventListener('hashchange', this.renderRoute.bind(this));
-        this.renderRoute();
-    }
-
-    renderComponent(component) {
-        if (component.onInit) {
-            component.onInit();
+    #initComponents() {
+        if (!this.rootComponent) {
+            throw new Error('Root component is not defined');
         }
-        component.render();
-        if (component.afterViewInit) {
-            component.afterViewInit();
-        }
-    }
-
-    renderRoute() {
-        const component = router.render(this.routes)
-        this.renderComponent(component)
+        [this.rootComponent, ...this.components].forEach(renderComponent);
     }
 }

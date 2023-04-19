@@ -2,7 +2,7 @@
 // Configure webpack for loading HTML by files not by hardcode HTML
 // Or maybe to create special templateUrl and template for two possibilities ?????
 
-import {TayaComponent} from "../library/imports";
+import {TayaComponent} from "tayaJS";
 import './app.component.css'
 
 class AppComponent extends TayaComponent {
