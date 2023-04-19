@@ -1,5 +1,7 @@
-// Existing bug with number > 5 as soon as it thinks that > is closing tag
+// TO DO:
+// 1. Existing bug with number > 5 as soon as it thinks that > is closing tag
 // problem starts with line 17
+// 2. Throw an error if variable doesn't exist
 
 export function makeIf(template, state) {
     const openMakeIf = '<make-if'
@@ -17,7 +19,6 @@ export function makeIf(template, state) {
 
     //Here I will get condition
     let condition = makeIfWrapper.slice(makeIfWrapper.indexOf('<m'), makeIfWrapper.indexOf('>'))
-    console.log(condition)
     const singleQuote = condition.indexOf('\'');
     const doubleQuote = condition.indexOf('\"');
     singleQuote === -1 ? condition = condition.slice(doubleQuote + 1, condition.trim().length-1) :
@@ -31,7 +32,6 @@ export function makeIf(template, state) {
         }
     })
     condition = tokens.join(' ');
-    console.log(tokens);
     const result = eval(condition);
 
     // Now I should decide if I render content or not
@@ -39,8 +39,6 @@ export function makeIf(template, state) {
     if (result) {
         let content = makeIfWrapper.slice(makeIfWrapper.indexOf('>') + 1)
         content = content.slice(0, content.indexOf('</make-if>'))
-        console.log(template.split(makeIfWrapper));
-
         return templateWithoutCondition[0] + content + templateWithoutCondition[1];
     } else {
         return templateWithoutCondition.join(' ');
