@@ -1,6 +1,6 @@
-import {Component} from "../../library/core/component";
+import {TayaComponent} from "tayaJS";
 
-class AboutUsComponent extends Component {
+class AboutUsComponent extends TayaComponent {
     constructor(config) {
         super(config);
     }
@@ -13,6 +13,14 @@ class AboutUsComponent extends Component {
 
     onButtonClick(event) {
         console.log(event);
+    }
+
+    onInit() {
+        console.log('OnInit lifecycle hook is called');
+    }
+
+    afterViewInit() {
+        console.log('After view init lifecycle hook is called');
     }
 }
 
@@ -38,7 +46,7 @@ export const aboutUsComponent = new AboutUsComponent({
     selector: 'app-about-us',
     template:`<div>
             <make-for cycle="let item of arrayTest">
-            <div>
+            <div class="about__wrapper">
                 <h4>Wow</h4>
                 <h1>{{item}}</h1>
                 <h3>word</h3>
@@ -46,5 +54,10 @@ export const aboutUsComponent = new AboutUsComponent({
             </make-for>
            
             <div>{{number | multi:10}}</div>
-        </div>`
+        </div>`,
+    styles: `
+        .about__wrapper {
+           display: flex; 
+        }
+    `
 })

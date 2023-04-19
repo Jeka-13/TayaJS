@@ -51,6 +51,11 @@ module.exports = {
             filename: '[name].[contenthash].css'
         })
     ],
+    resolve: {
+        alias: {
+            'tayaJS': path.join(__dirname, 'src/library/imports.js')
+        }
+    },
     module: {
         rules: [
             {

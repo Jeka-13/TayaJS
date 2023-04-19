@@ -1,17 +1,19 @@
-import {parsePipe} from "./pipes/pipes-registration/parse-pipe";
-import {applyPipe} from "./pipes/pipes-registration/apply-pipe";
-import {makeIf} from "./tools/special-tags/make-if";
-import {makeFor} from "./tools/special-tags/make-for";
+import {parsePipe} from "../pipes/pipes-registration/parse-pipe";
+import {applyPipe} from "../pipes/pipes-registration/apply-pipe";
+import {makeIf} from "../tools/special-tags/make-if";
+import {makeFor} from "../tools/special-tags/make-for";
 
 export class Component {
     constructor(config) {
         this.state = config.state;
         this.selector = config.selector;
         this.template = config.template;
+        this.styles = config.styles;
         this.element = null;
     }
 
     render() {
+        this.#initStyles(this.styles);
         this.element = document.querySelector(this.selector);
         if (!this.selector)
             throw new Error('Please, introduce the name of the selector')
@@ -22,14 +24,24 @@ export class Component {
 
         this.element.innerHTML = this.renderTemplate(this.template, this.state);
 
-        this._initEvents();
+        this.#initEvents();
     }
 
-    _initEvents() {
-        if(!this.events) return;
+    #initStyles(styles) {
+        if (!styles) {
+            return;
+        }
+        document.head.innerHTML += `<style>${styles}</style>`
+    }
+
+    #initEvents() {
+        if (!this.events) return;
         let events = this.events();
         Object.keys(events).forEach(key => {
             const [listenerType, selector] = key.split(' ');
+            if (!this.element.querySelector(selector)) {
+                return;
+            }
             this.element.querySelector(selector).addEventListener(listenerType, events[key].bind(this))
         })
     }

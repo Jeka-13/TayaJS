@@ -1,4 +1,4 @@
-import {Pipe} from "../../../library/imports";
+import {Pipe} from "tayaJS";
 
 class MultiPipe extends Pipe {
     constructor(config) {
