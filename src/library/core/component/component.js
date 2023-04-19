@@ -8,10 +8,12 @@ export class Component {
         this.state = config.state;
         this.selector = config.selector;
         this.template = config.template;
+        this.styles = config.styles;
         this.element = null;
     }
 
     render() {
+        this.#initStyles(this.styles);
         this.element = document.querySelector(this.selector);
         if (!this.selector)
             throw new Error('Please, introduce the name of the selector')
@@ -23,6 +25,13 @@ export class Component {
         this.element.innerHTML = this.renderTemplate(this.template, this.state);
 
         this.#initEvents();
+    }
+
+    #initStyles(styles) {
+        if (!styles) {
+            return;
+        }
+        document.head.innerHTML += `<style>${styles}</style>`
     }
 
     #initEvents() {
