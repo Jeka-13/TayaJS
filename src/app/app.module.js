@@ -5,6 +5,7 @@ import {homePageComponent} from "./pages/home-page.component";
 import {aboutUsComponent} from "./pages/about-us.component";
 import {notFound} from "./common/not-found.component";
 import {multiPipe} from "./shared/pipes/multi.pipe";
+import {commonTayaJSPipes} from "../library/core/pipes/common-tayajs-pipes";
 
 class AppModule extends TayaModule {
     constructor(config) {
@@ -29,6 +30,7 @@ export const appModule = new AppModule({
         }
     ],
     pipes: [
-        multiPipe
+        multiPipe,
+        ...commonTayaJSPipes
     ]
 })

@@ -1,5 +1,6 @@
-import {parsePipe} from "./pipes/parse-pipe";
-import {applyPipe} from "./pipes/apply-pipe";
+import {parsePipe} from "./pipes/pipes-registration/parse-pipe";
+import {applyPipe} from "./pipes/pipes-registration/apply-pipe";
+import {makeIf} from "./tools/special-tags/make-if";
 
 export class Component {
     constructor(config) {
@@ -45,7 +46,9 @@ export class Component {
              if(!pipe) return state[key];
              return applyPipe(pipe, state[key]);
         })
-
+        if (template.includes('make-if')) {
+            template = makeIf(template, state);
+        }
         return template;
     }
 }
