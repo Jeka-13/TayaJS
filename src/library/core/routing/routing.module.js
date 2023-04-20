@@ -2,8 +2,9 @@ import {router} from "tayaJS";
 import {renderComponent} from "../component/render-component";
 
 export class RoutingModule {
-    constructor(routes) {
+    constructor(routes, dispatcher) {
         this.routes = routes;
+        this.dispatcher = dispatcher;
     }
 
     initRoutes() {
@@ -14,5 +15,6 @@ export class RoutingModule {
     #renderRoute() {
         const component = router.render(this.routes)
         renderComponent(component)
+        this.dispatcher.emit('routing.change-page')
     }
 }
