@@ -6,6 +6,7 @@ import {aboutUsComponent} from "./pages/about-us.component";
 import {notFound} from "./common/not-found.component";
 import {multiPipe} from "./shared/pipes/multi.pipe";
 import {commonTayaJSPipes} from "tayaJS";
+import {appHoverDirective} from "./directives/hover.directive";
 
 class AppModule extends TayaModule {
     constructor(config) {
@@ -32,5 +33,8 @@ export const appModule = new AppModule({
     pipes: [
         multiPipe,
         ...commonTayaJSPipes
+    ],
+    directives: [
+        appHoverDirective
     ]
 })

@@ -54,6 +54,9 @@ export const aboutUsComponent = new AboutUsComponent({
             </make-for>
            
             <div>{{number | multi:10}}</div>
+            <div>
+                <h3 appHover="blue">Hover me</h3>
+            </div>
         </div>`,
     styles: `
         .about__wrapper {
