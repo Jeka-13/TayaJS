@@ -1,4 +1,4 @@
-import {TayaComponent} from "tayaJS";
+import {TayaComponent, TayaHTTP} from "tayaJS";
 
 class AboutUsComponent extends TayaComponent {
     constructor(config) {
@@ -16,7 +16,30 @@ class AboutUsComponent extends TayaComponent {
     }
 
     onInit() {
-        console.log('OnInit lifecycle hook is called');
+        TayaHTTP.GET('https://jsonplaceholder.typicode.com/posts')
+            .then(response => {
+                console.log(response);
+            });
+
+        TayaHTTP.POST('https://jsonplaceholder.typicode.com/posts', {title: 'Foo', body: 'bar', userId: 1})
+            .then(response => {
+                console.log(response);
+            });
+
+        TayaHTTP.PUT('https://jsonplaceholder.typicode.com/posts/1', {title: 'Foo', body: 'bar', userId: 1})
+            .then(response => {
+                console.log(response);
+            });
+
+        TayaHTTP.PATCH('https://jsonplaceholder.typicode.com/posts/1', {title: 'foo'})
+            .then(response => {
+                console.log(response);
+            });
+
+        TayaHTTP.DELETE('https://jsonplaceholder.typicode.com/posts/1')
+            .then(response => {
+                console.log(response);
+            });
     }
 
     afterViewInit() {
