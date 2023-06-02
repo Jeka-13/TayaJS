@@ -11,6 +11,9 @@ import {appSidebar} from "./pages/learn/sidebar/sidebar.component";
 import {gettingStarted} from "./pages/learn/geting-started/getting-started";
 import {appModulesComponent} from "./pages/learn/modules/modules.component";
 import {appComponentLearning} from "./pages/learn/components/components.component";
+import {appMakeifComponentLearning} from "./pages/learn/make-if/make-if.component";
+import {appMakeForLearning} from "./pages/learn/make-for/make-for.component";
+import {appPipesLearning} from "./pages/learn/pipes/pipes-learning.component";
 
 class AppModule extends TayaModule {
     constructor(config) {
@@ -37,6 +40,15 @@ export const appModule = new AppModule({
         },
         {
             path: 'learn/components', component: appComponentLearning
+        },
+        {
+            path: 'learn/make-if', component: appMakeifComponentLearning
+        },
+        {
+          path: 'learn/make-for', component: appMakeForLearning
+        },
+        {
+            path: 'learn/pipes', component: appPipesLearning
         },
         {
             path: '**', component: notFound
