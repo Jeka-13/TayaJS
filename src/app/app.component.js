@@ -13,7 +13,10 @@ export const appComponent = new AppComponent({
     selector: 'app-root',
     template: ` 
         <app-header></app-header>
-        <router-outlet></router-outlet>
+        <div class="learn-wrapper">
+            <app-sidebar></app-sidebar>
+            <router-outlet class="main-wrapper"></router-outlet>
+        </div>
         <app-footer></app-footer>
     `
 })
