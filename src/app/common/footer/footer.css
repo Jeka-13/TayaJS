@@ -1,0 +1,23 @@
+.footer {
+    background-color: #232730;
+}
+
+.footer__header-wrapper {
+    padding-top: 2vh;
+    margin-right: 3vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__header {
+    margin: 0;
+    text-align: right;
+}
+
+.footer__link-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 35vw;
+    margin-right: 35vw;
+    margin-bottom: 3vh;
+}
