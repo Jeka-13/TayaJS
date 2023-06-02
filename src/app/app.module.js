@@ -17,6 +17,9 @@ import {appPipesLearning} from "./pages/learn/pipes/pipes-learning.component";
 import {appDirectivesLearning} from "./pages/learn/directives/directives-learning.component";
 import {appEventsComponent} from "./pages/learn/events/events.component";
 import {appRoutingLearningComponent} from "./pages/learn/routing/routing.component";
+import {appTayaXSLearning} from "./pages/learn/tayaxs/taya-xs-learning.component";
+import {appHttpServiceLearning} from "./pages/learn/http-service/http-service-learning.component";
+import {appLifecycleHooks} from "./pages/learn/lifecycle-hooks/lifecycle-hooks-learning.component";
 
 class AppModule extends TayaModule {
     constructor(config) {
@@ -61,6 +64,15 @@ export const appModule = new AppModule({
         },
         {
             path:'learn/routes', component: appRoutingLearningComponent
+        },
+        {
+            path: 'learn/taya-xs', component: appTayaXSLearning
+        },
+        {
+            path: 'learn/http-service', component: appHttpServiceLearning
+        },
+        {
+            path: 'learn/lifecycle-hooks', component: appLifecycleHooks
         },
         {
             path: '**', component: notFound
