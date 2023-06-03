@@ -31,7 +31,9 @@ export const gettingStarted = new GettingStarted({
             <i>"git clone https://github.com/Jeka-13/TayaJS.git"</i></p>
             <p>Run the command: <i>"npm install"</i></p>
         <h3>Run the application</h3>
-        *commands*
+        <p><i>npm start</i> - will run the application in the development mode on 4200 port</p>
+        <p><i>npm run dev</i> - will build the application in the development mode</p>
+        <p><i>npm run build</i> - will build the application in the production mode</p>
     </main>
 `,
 

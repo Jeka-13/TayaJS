@@ -69,6 +69,7 @@ export const appPipesLearning = new PipesLearningComponent({
     </div>
     <h3>Existing pipes</h3>
     <p>TayaJS already provides existing pipes, they can be found <i>commonTayaJSPipes</i></p>
+    <p>For example, in TayaJS exists pipe for manipulating with dates or with text to make it UPPERCASE</p>
 </main>
     `
 })

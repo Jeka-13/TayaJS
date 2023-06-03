@@ -11,6 +11,8 @@
 }
 
 .learn-block-wrapper {
+    padding-top: 20px;
+    padding-right: 30px;
     display: flex;
     flex-direction: column;
     width: 120px;

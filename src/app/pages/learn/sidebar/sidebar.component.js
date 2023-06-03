@@ -17,8 +17,8 @@ export const appSidebar = new SidebarComponent({
                     <a href="#learn/getting-started" class="learn-block-item">Getting started</a>
                     <a href="#learn/modules" class="learn-block-item">Modules</a>
                     <a href="#learn/components" class="learn-block-item">Components</a>
-                    <a href="#learn/make-if" class="learn-block-item">Make-if</a>
-                    <a href="#learn/make-for" class="learn-block-item">Make-for</a>
+                    <a href="#learn/make-if" class="learn-block-item">Make-If</a>
+                    <a href="#learn/make-for" class="learn-block-item">Make-For</a>
                     <a href="#learn/pipes" class="learn-block-item">Pipes</a>
                     <a href="#learn/directives" class="learn-block-item">Directives</a>
                     <a href="#learn/events" class="learn-block-item">Events</a>
