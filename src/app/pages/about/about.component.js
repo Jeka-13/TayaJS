@@ -1,5 +1,4 @@
 import {TayaComponent} from "tayaJS";
-import './about.css'
 
 class AboutComponent extends TayaComponent {
     constructor(config) {
@@ -10,7 +9,7 @@ class AboutComponent extends TayaComponent {
 export const appAboutComponent = new AboutComponent({
     selector: 'app-about-component',
     template: `
-     <main class="about-wrapper">
+     <main>
         <h1>About us</h1>
         <p>TayaJS is a library for making single-page applications. TayaJS includes the necessary functionality for building these applications, such as conditional rendering, 
         iterative rendering, and a state management system for component communication. It offers both flexibility and simplicity.</p>
