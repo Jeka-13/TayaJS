@@ -24,7 +24,7 @@ export const appHeader = new HeaderComponent({
                     </a>
                 </li>
                 <li class="header__navigation-list-item">
-                    <a class="header__navigation-list-item-link" href="../about.html">
+                    <a class="header__navigation-list-item-link" href="#about-us">
                         About us
                     </a>
                 </li>
