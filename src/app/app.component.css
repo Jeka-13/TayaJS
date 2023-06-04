@@ -22,3 +22,7 @@ body {
 .ml-14vw {
     margin-left: 14vw;
 }
+
+h1 {
+    text-align: center;
+}

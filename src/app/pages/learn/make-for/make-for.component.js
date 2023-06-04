@@ -32,7 +32,7 @@ export const appMakeForLearning = new MakeForComponent({
                     <span class="code-blue">template</span>
                     <span>:</span>
                     <span class="code-dark-blue">\`&lt;make-for </span>
-                    <span class="code-yellow">condition </span>
+                    <span class="code-yellow">cycle </span>
                     <span>= "</span>
                     <span class="code-purple">let item of arrayTest</span>
                     <span>"</span>

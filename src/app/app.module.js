@@ -21,6 +21,7 @@ import {appTayaXSLearning} from "./pages/learn/tayaxs/taya-xs-learning.component
 import {appHttpServiceLearning} from "./pages/learn/http-service/http-service-learning.component";
 import {appLifecycleHooks} from "./pages/learn/lifecycle-hooks/lifecycle-hooks-learning.component";
 import {appAboutComponent} from "./pages/about/about.component";
+import {appPresentationComponent} from "./pages/presentation/presentation.component";
 
 class AppModule extends TayaModule {
     constructor(config) {
@@ -77,6 +78,9 @@ export const appModule = new AppModule({
         },
         {
           path: 'about-us', component: appAboutComponent
+        },
+        {
+            path: 'presentation', component: appPresentationComponent
         },
         {
             path: '**', component: notFound
