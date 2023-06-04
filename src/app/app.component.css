@@ -1,4 +1,28 @@
-div.xxx {
-    color: blue;
-    background-color: red;
+body {
+    font-family: 'Ubuntu', sans-serif;
+    color: #F6F7F9;
+    background-color: #232730;
+}
+
+.pd-t-3vh {
+    padding-top: 3vh;
+}
+.ml-1vw {
+    margin-left: 1vw;
+}
+
+.ml-3vw {
+    margin-left: 3vw;
+}
+
+.ml-13vw {
+    margin-left: 13vw;
+}
+
+.ml-14vw {
+    margin-left: 14vw;
+}
+
+h1 {
+    text-align: center;
 }

@@ -1,0 +1,42 @@
+.code-wrapper {
+    margin-left: 1vw;
+}
+
+.code-red {
+    color: #FEAFB0;
+}
+
+.code-yellow {
+    color: #dede34;
+}
+
+.code-purple {
+    color: #BEA5E7;
+}
+
+.code-blue {
+    color: #14D3FF;
+}
+
+.code-dark-blue {
+    color: #43B1D7;
+}
+
+.code-gray {
+    color: #515658;
+}
+
+.code-result {
+    background-color: white;
+    color: black;
+    width: 100%;
+    height: 100%;
+}
+.code-result-file-name {
+    text-align: right;
+    margin: 0 2vw 0 0;
+}
+
+.function-body {
+    margin-left: 5vw;
+}

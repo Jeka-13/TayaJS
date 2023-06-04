@@ -1,6 +1,3 @@
-//To do:
-//1 some validation needed and test
-
 export function makeFor(template, state) {
     const openMakeFor = '<make-for'
     const closedMakeFor = '/make-for'
@@ -10,13 +7,12 @@ export function makeFor(template, state) {
         throw new Error('Is missing closed or opened make-for tag');
     }
 
-    // Here I separate only make if from whole template
     const idxOfBeginningCondition = template.indexOf(openMakeFor);
     let makeForWrapper = template.slice(idxOfBeginningCondition);
     const idxOfEndingCondition = makeForWrapper.indexOf('or>')
     makeForWrapper = makeForWrapper.slice(0, idxOfEndingCondition+3);
 
-    //Here I will get loop
+
     let loop = makeForWrapper.slice(makeForWrapper.indexOf('<m'), makeForWrapper.indexOf('>'))
     const singleQuote = loop.indexOf('\'');
     const doubleQuote = loop.indexOf('\"');
@@ -27,10 +23,8 @@ export function makeFor(template, state) {
     const keyWordLoop = tokens[1];
     const arrayName = tokens[tokens.length - 1];
 
-    //Here should be validation if array exists
     const items = state[arrayName];
 
-    //Here I start looping the code
     const templateWithoutLoop = template.split(makeForWrapper);
     let content = makeForWrapper.slice(makeForWrapper.indexOf('>') + 1)
     content = content.slice(0, content.indexOf('</make-for>'))

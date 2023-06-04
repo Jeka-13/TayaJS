@@ -11,7 +11,6 @@ export class Module {
         this.routes = config.routes;
         this.pipes = config.pipes;
         this.directives = config.directives;
-
         this.dispatcher = new EventEmitter();
     }
 

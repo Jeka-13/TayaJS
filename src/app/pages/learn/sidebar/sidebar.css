@@ -1,0 +1,28 @@
+.learn-wrapper {
+    display: flex;
+    font-family: 'Ubuntu', sans-serif;
+    color: #F6F7F9;
+    background-color: #232730;
+}
+
+.learn__sidebar-wrapper {
+    width: 17vw;
+    margin-left: 3vw;
+}
+
+.learn-block-wrapper {
+    padding-top: 20px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+}
+
+.learn-block-item {
+    margin-bottom: 3vh;
+}
+
+.main-wrapper {
+    width: 60vw;
+    font-size: 18px;
+}
